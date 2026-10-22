@@ -21,11 +21,25 @@
 .floating-contact:focus-visible{outline:3px solid #fff;outline-offset:4px}
 @media(max-width:740px){.floating-contact{right:14px;bottom:max(16px,env(safe-area-inset-bottom))}}
 
-/* Centraliza apenas o bloco com a classe dev-credits */
+/* Remove a linha divisória da seção de créditos */
 .dev-credits {
-  text-align: center;
+  border-top: none; /* Remove a linha marcada na imagem */
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   width: 100%;
+  padding-top: 0; /* Ajusta o espaçamento superior */
+}
+
+/* Estiliza o link do seu perfil para destacar no footer */
+.dev-credits a {
+  color: #ffaaa4; /* Mesma cor de destaque usada nos links do footer */
+  font-weight: 700;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.dev-credits a:hover {
+  color: #ffffff; /* Altera a cor ao passar o mouse */
 }

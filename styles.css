@@ -43,3 +43,69 @@
 .dev-credits a:hover {
   color: #ffffff; /* Altera a cor ao passar o mouse */
 }
+
+/* Layout da Seção de Depoimentos */
+.trust {
+  display: block !important;
+}
+
+.trust-content-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 40px;
+  margin-top: 40px;
+  align-items: start;
+}
+
+.testimonials-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.testimonial-card {
+  background: var(--white);
+  padding: 25px;
+  border-left: 4px solid var(--coral);
+  box-shadow: 0 10px 30px rgba(7, 28, 50, 0.05);
+}
+
+.testimonial-stars {
+  color: #f59e0b;
+  font-size: 16px;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.testimonial-text {
+  margin: 0 0 15px;
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.testimonial-author {
+  display: block;
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 14px;
+}
+
+.testimonial-bike {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.review-form {
+  background: var(--white);
+  margin: 0;
+}
+
+@media (max-width: 980px) {
+  .trust-content-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}

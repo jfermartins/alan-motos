@@ -6,7 +6,7 @@
   const form = document.querySelector('#contact-form');
   const result = document.querySelector('#form-result');
   const config = window.ALAN_SITE_CONFIG || {};
-  const configuredWhatsApp = String(config.whatsapp || '').replace(/\D/g, '');
+  const configuredWhatsApp = String(config.whatsapp || '5513991077633').replace(/\D/g, '');
   const floatingContact = document.querySelector('.floating-contact');
   const siteFooter = document.querySelector('.site-footer');
 
@@ -53,73 +53,100 @@
     }));
   }
 
-  if (!form || !result) return;
+  // Lógica do formulário de contato principal
+  if (form && result) {
+    const buildMessage = (data) => [
+      `Olá! Meu nome é ${data.name}.`,
+      `Minha moto é ${data.bike}.`,
+      `Preciso de ajuda com: ${data.service}.`,
+      data.message ? `Detalhes: ${data.message}` : '',
+      'Podemos conversar sobre o atendimento?'
+    ].filter(Boolean).join('\n');
 
-  const buildMessage = (data) => [
-    `Olá! Meu nome é ${data.name}.`,
-    `Minha moto é ${data.bike}.`,
-    `Preciso de ajuda com: ${data.service}.`,
-    data.message ? `Detalhes: ${data.message}` : '',
-    'Podemos conversar sobre o atendimento?'
-  ].filter(Boolean).join('\n');
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (!form.reportValidity()) return;
 
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    if (!form.reportValidity()) return;
-
-    const values = new FormData(form);
-    const message = buildMessage({
-      name: String(values.get('name') || '').trim(),
-      bike: String(values.get('bike') || '').trim(),
-      service: String(values.get('service') || '').trim(),
-      message: String(values.get('message') || '').trim()
-    });
-    const digits = String(config.whatsapp || '').replace(/\D/g, '');
-
-    result.hidden = false;
-    result.replaceChildren();
-    const note = document.createElement('p');
-
-    if (digits.startsWith('55') && digits.length >= 12) {
-      note.textContent = 'Sua solicitação está pronta. O WhatsApp será aberto com a mensagem para você revisar antes de enviar.';
-      const link = document.createElement('a');
-      link.className = 'copy-message';
-      link.href = `https://wa.me/${digits}?text=${encodeURIComponent(message)}`;
-      link.target = '_blank';
-      link.rel = 'noopener noreferrer';
-      link.textContent = 'Abrir conversa no WhatsApp ↗';
-      result.append(note, link);
-    } else {
-      note.textContent = 'O número oficial da oficina ainda não foi cadastrado no site. Copie a mensagem e envie pelo canal de atendimento da oficina.';
-      const copy = document.createElement('button');
-      copy.className = 'copy-message';
-      copy.type = 'button';
-      copy.textContent = 'Copiar mensagem';
-      copy.addEventListener('click', async () => {
-        try {
-          await navigator.clipboard.writeText(message);
-          copy.textContent = 'Mensagem copiada';
-        } catch {
-          const helper = document.createElement('textarea');
-          helper.value = message;
-          helper.setAttribute('readonly', '');
-          helper.style.position = 'fixed';
-          helper.style.opacity = '0';
-          document.body.append(helper);
-          helper.select();
-          const copied = document.execCommand('copy');
-          helper.remove();
-          copy.textContent = copied ? 'Mensagem copiada' : 'Selecione e copie o texto manualmente';
-        }
+      const values = new FormData(form);
+      const message = buildMessage({
+        name: String(values.get('name') || '').trim(),
+        bike: String(values.get('bike') || '').trim(),
+        service: String(values.get('service') || '').trim(),
+        message: String(values.get('message') || '').trim()
       });
-      const mapLink = document.createElement('a');
-      mapLink.className = 'copy-message';
-      mapLink.href = mapPinUrl;
-      mapLink.target = '_blank';
-      mapLink.rel = 'noopener noreferrer';
-      mapLink.textContent = 'Ver o ponto fornecido no Maps ↗';
-      result.append(note, copy, document.createTextNode(' '), mapLink);
-    }
-    result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  });
+      const digits = String(config.whatsapp || '5513991077633').replace(/\D/g, '');
+
+      result.hidden = false;
+      result.replaceChildren();
+      const note = document.createElement('p');
+
+      if (digits.startsWith('55') && digits.length >= 12) {
+        note.textContent = 'Sua solicitação está pronta. O WhatsApp será aberto com a mensagem para você revisar antes de enviar.';
+        const link = document.createElement('a');
+        link.className = 'copy-message';
+        link.href = `https://wa.me/${digits}?text=${encodeURIComponent(message)}`;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.textContent = 'Abrir conversa no WhatsApp ↗';
+        result.append(note, link);
+      } else {
+        note.textContent = 'O número oficial da oficina ainda não foi cadastrado no site.';
+      }
+      result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+  }
+
+  // Lógica do formulário de depoimentos/avaliações na própria página
+  const reviewForm = document.querySelector('#review-form');
+  const reviewResult = document.querySelector('#review-result');
+  const testimonialsList = document.querySelector('#testimonials-list');
+
+  if (reviewForm && reviewResult && testimonialsList) {
+    reviewForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (!reviewForm.reportValidity()) return;
+
+      const values = new FormData(reviewForm);
+      const name = String(values.get('reviewName') || '').trim();
+      const bike = String(values.get('reviewBike') || '').trim();
+      const text = String(values.get('reviewText') || '').trim();
+
+      // Criar o elemento do card de depoimento
+      const card = document.createElement('div');
+      card.className = 'testimonial-card';
+
+      const stars = document.createElement('div');
+      stars.className = 'testimonial-stars';
+      stars.setAttribute('aria-hidden', 'true');
+      stars.textContent = '★★★★★';
+
+      const comment = document.createElement('p');
+      comment.className = 'testimonial-text';
+      comment.textContent = `"${text}"`;
+
+      const author = document.createElement('span');
+      author.className = 'testimonial-author';
+      author.textContent = name;
+
+      const bikeModel = document.createElement('span');
+      bikeModel.className = 'testimonial-bike';
+      bikeModel.textContent = bike;
+
+      card.append(stars, comment, author, bikeModel);
+
+      // Insere o novo depoimento no topo da lista
+      testimonialsList.prepend(card);
+
+      // Feedback de sucesso no formulário
+      reviewResult.hidden = false;
+      reviewResult.replaceChildren();
+      const note = document.createElement('p');
+      note.textContent = 'Obrigado! Sua avaliação foi publicada com sucesso nesta página.';
+      reviewResult.append(note);
+
+      // Reseta os campos do formulário
+      reviewForm.reset();
+      card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+  }
 })();

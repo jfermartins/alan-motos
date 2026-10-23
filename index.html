@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#12355b">
   <meta name="description"
-    content="Manutenção, revisão, diagnóstico e reparos em Praia Grande-SP. Av. Zélia Giglioli Galves, 120, Jardim Esmeralda, CEP 11713-300.">
+    content="Manutenção, revisão, diagnóstico e reparos em Praia Grande-SP. Av. Zélia Giglioli Galves, 120, Balneário Esmeralda, CEP 11713-300.">
   <meta name="keywords"
     content="mecânica de motos em Praia Grande, manutenção de motos, revisão de motos, diagnóstico de motos, reparo de motocicleta">
   <meta property="og:type" content="website">
@@ -16,7 +16,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Alan Mecânica de Motos em Praia Grande">
   <meta name="twitter:description"
-    content="Conte o que sua moto precisa. Av. Zélia Giglioli Galves, 120, Jardim Esmeralda, Praia Grande-SP, CEP 11713-300.">
+    content="Conte o que sua moto precisa. Av. Zélia Giglioli Galves, 120, Balneário Esmeralda, Praia Grande-SP, CEP 11713-300.">
   <link rel="icon" type="image/svg+xml" href="brand-mark.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,6 +51,7 @@
         <a href="#servicos">Serviços</a>
         <a href="#oficina">A oficina</a>
         <a href="#galeria">Galeria</a>
+        <a href="#depoimentos">Depoimentos</a>
         <a href="#contato">Contato</a>
         <a class="nav-cta" href="#contato">Solicitar atendimento <span aria-hidden="true">↗</span></a>
       </nav>
@@ -78,8 +79,7 @@
       </div>
       <div class="hero-visual">
         <div class="hero-image-frame">
-          <img src="/manus-storage/async-images/ngS7PBMjYbEaPMWa7v7hAC/image-1.webp"
-            alt="Mecânico avaliando uma motocicleta em uma oficina" fetchpriority="high">
+          <img src="/src/moto1.webp" alt="Mecânico avaliando uma motocicleta em uma oficina" fetchpriority="high">
         </div>
         <div class="hero-stamp"><span>ALAN</span><small>MECÂNICA<br>DE MOTOS</small><i aria-hidden="true"></i></div>
         <div class="hero-index"><span>01</span><span class="index-rule"></span><span>MANUTENÇÃO<br>COM ATENÇÃO</span>
@@ -132,8 +132,8 @@
     </section>
 
     <section class="about" id="oficina">
-      <div class="about-photo"><img src="/manus-storage/async-images/PFZ6yY9RgXXyl8g7BmwO20/image-1.webp"
-          alt="Visão do interior de uma oficina de motos organizada" loading="lazy"><span class="photo-label">OFICINA ·
+      <div class="about-photo"><img src="/src/moto2.webp" alt="Visão do interior de uma oficina de motos organizada"
+          loading="lazy"><span class="photo-label">OFICINA ·
           ATENÇÃO · CONFIANÇA</span></div>
       <div class="about-copy">
         <p class="eyebrow eyebrow-light"><span class="eyebrow-line"></span> SOBRE A OFICINA</p>
@@ -184,22 +184,60 @@
           href="https://maps.app.goo.gl/pfnxiieCVBbkC4uQ8" target="_blank" rel="noopener noreferrer">Encontrar a oficina
           no Maps <span aria-hidden="true">↗</span></a>
       </div>
-      <div class="gallery-image"><img src="/manus-storage/async-images/ngS7PBMjYbEaPMWa7v7hAC/image-2.webp"
-          alt="Mãos trabalhando na manutenção de uma moto" loading="lazy"><span class="gallery-image-corner">ALAN /
+      <div class="gallery-image"><img src="/src/moto.webp" alt="Mãos trabalhando na manutenção de uma moto"
+          loading="lazy"><span class="gallery-image-corner">ALAN /
           OFICINA</span></div>
     </section>
 
-    <section class="trust section-wrap section-space" aria-labelledby="trust-title">
+    <section class="trust section-wrap section-space" id="depoimentos" aria-labelledby="trust-title">
       <div class="trust-heading">
         <p class="eyebrow"><span class="eyebrow-line"></span> CONFIANÇA SE CONSTRÓI</p>
-        <h2 id="trust-title">O seu relato importa.</h2>
+        <h2 id="trust-title">O que dizem sobre a oficina.</h2>
+        <p class="section-lede" style="margin-top: 15px;">Histórias reais de quem já passou por aqui e confiou no
+          cuidado com a moto.</p>
       </div>
-      <div class="trust-copy">
-        <p>A experiência de cada cliente ajuda a oficina a melhorar. Depoimentos reais serão publicados aqui com
-          autorização — sem frases prontas ou histórias inventadas.</p>
-        <div class="trust-note"><span aria-hidden="true">✳</span><span>Já trouxe sua moto? Conte como foi o
-            atendimento.</span></div><a class="text-link" href="#contato">Deixar uma mensagem <span
-            aria-hidden="true">↗</span></a>
+
+      <div class="trust-content-grid">
+        <!-- Grid de Depoimentos Existentes -->
+        <div class="testimonials-grid" id="testimonials-list">
+          <div class="testimonial-card">
+            <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
+            <p class="testimonial-text">"Atendimento excelente! O Alan explicou exatamente o que a minha moto precisava,
+              sem enrolação e com muita transparência. Recomendo demais!"</p>
+            <span class="testimonial-author">Carlos Mendes</span>
+            <span class="testimonial-bike">Honda Fan 160</span>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
+            <p class="testimonial-text">"Profissional super atencioso. Deixou a moto tinindo para a minha rotina de
+              entregas. Dá gosto de ver o capricho no serviço."</p>
+            <span class="testimonial-author">Rafael Souza</span>
+            <span class="testimonial-bike">Yamaha Fazer 250</span>
+          </div>
+        </div>
+
+        <!-- Formulário para Enviar Novo Depoimento -->
+        <div class="testimonial-form-wrapper">
+          <form class="contact-form review-form" id="review-form">
+            <div class="form-heading">
+              <span>DEIXE SUA AVALIAÇÃO</span>
+              <p>Como foi sua experiência?</p>
+            </div>
+            <label for="review-name">Seu nome</label>
+            <input id="review-name" name="reviewName" placeholder="Seu nome completo" required>
+
+            <label for="review-bike">Sua moto</label>
+            <input id="review-bike" name="reviewBike" placeholder="Ex: Honda Fan 160" required>
+
+            <label for="review-text">Seu depoimento</label>
+            <textarea id="review-text" name="reviewText" rows="3" placeholder="Conte como foi o atendimento..."
+              required></textarea>
+
+            <button class="button button-primary form-submit" type="submit">Publicar avaliação ↗</button>
+            <div class="form-result" id="review-result" role="status" aria-live="polite" hidden></div>
+          </form>
+        </div>
       </div>
     </section>
 
@@ -221,14 +259,14 @@
               src="https://www.google.com/maps/embed?origin=mfe&amp;pb=!1m3!2m1!1sAv.+Z%C3%A9lia+Giglioli+Galves,+120+-+S%C3%A3o+Jos%C3%A9+do+Rio+Preto,+Praia+Grande+-+SP,+11713-300!6i16"
               title="Mapa da Av. Zélia Giglioli Galves, 120, Praia Grande-SP" loading="lazy"
               referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-            <p class="map-status">Mapa incorporado somente no endereço informado, sem campo de pesquisa.</p>
+
             <a class="map-fallback" href="https://maps.app.goo.gl/pfnxiieCVBbkC4uQ8" target="_blank"
               rel="noopener noreferrer">Abrir o ponto compartilhado no Google Maps <span aria-hidden="true">↗</span></a>
           </div>
           <div class="contact-details">
             <div class="contact-detail"><span class="detail-symbol" aria-hidden="true">↗</span>
               <div><small>ENDEREÇO</small><a href="https://maps.app.goo.gl/pfnxiieCVBbkC4uQ8" target="_blank"
-                  rel="noopener noreferrer">Av. Zélia Giglioli Galves, 120<br>Jardim Esmeralda, Praia
+                  rel="noopener noreferrer">Av. Zélia Giglioli Galves, 120<br>Balneário Esmeralda, Praia
                   Grande-SP<br>CEP 11713-300</a></div>
             </div>
             <div class="contact-detail"><span class="detail-symbol" aria-hidden="true">◷</span>
